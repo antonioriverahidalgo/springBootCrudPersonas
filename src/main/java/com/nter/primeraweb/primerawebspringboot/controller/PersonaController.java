@@ -36,18 +36,18 @@ public class PersonaController {
         return "formulario";
     }
 
-    @PutMapping("/{id}")
+    @PostMapping("/editar/{id}")
     public String actualizarPersona(@PathVariable Long id, @ModelAttribute Persona persona){
         personaService.actualizarPersona(id,persona);
         return "redirect:/personas";
     }
-    @DeleteMapping("/{id}")
+    @GetMapping("/eliminar/{id}")
     public String eliminarPersona(@PathVariable Long id){
         personaService.eliminarPersona(id);
         return "redirect:/personas";
     }
 
-    @PostMapping
+    @PostMapping("/nueva")
     public String guardarNuevaPersona(@ModelAttribute Persona persona){
         personaService.crearPersona(persona);
         return "redirect:/personas";
